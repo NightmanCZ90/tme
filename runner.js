@@ -20,11 +20,15 @@ class Runner {
           console.log(`OK - ${desc}`);
         } catch (err) {
           console.log(`FAIL - ${desc}`);
-          console.log(err);
+          console.log('\t', err.message);
         }
       };
 
-      require(file.name);
+      try {
+        require(file.name);
+      } catch (err) {
+        console.log(err.message);
+      }
     }
   }
 
